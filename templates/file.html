@@ -1,0 +1,26 @@
+{%  extends 'index.html' %}
+
+{% block content %}
+    {% load staticfiles %}
+        {% if  datei %}
+        <a href="{% static datei %}" >{{ datei }}</a>
+        {% elif filelist%}
+        {% for datei in filelist %}
+            <p><a href="
+            {% if tag %}
+            {{ datei }}
+            {% else %}
+            {% static datei %}
+            {% endif %}
+             " >{{ datei }}</a>
+            </p>
+
+        {% endfor %}
+
+
+        {%  else %}
+        Nothing to see here.
+    {% endif %}
+
+
+{% endblock %}

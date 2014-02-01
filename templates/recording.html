@@ -1,0 +1,24 @@
+{%  extends 'index.html' %}
+{% block head %}
+    {% if parts %}
+        <meta http-equiv="refresh" content="{{ leng }};url={% url 'Stations.views.showFiles' name parts %}">
+    {% else %}
+        <meta http-equiv="refresh" content="{{ leng }};url={% url 'Stations.views.showFiles' name %}">
+    {% endif %}
+
+
+{% endblock %}
+
+{% block content %}
+       <div id="aufn">
+       Aufnahme läuft. Sie werden in {{ leng }} Sekunden zur fertigen Aufnahme weitergeleitet.
+       </div>
+    <div id="spinnerContainer">
+
+    </div>
+
+
+
+
+
+{% endblock %}

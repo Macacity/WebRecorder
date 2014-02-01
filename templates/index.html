@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{% load bootstrap_toolkit %}
+<html>
+<head>
+    {% block head %}
+    
+    {% endblock %}
+    {% bootstrap_stylesheet_tag %}
+    {% bootstrap_stylesheet_tag "responsive" %}
+{% load staticfiles %}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    {% bootstrap_javascript_tag %}
+
+<script>
+
+function change(Farbe)
+{
+    document.getElementById('id_name').value = Farbe;
+
+}
+</script>
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 60px;
+      }
+       .form-file {
+        max-width: 300px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-file .form-file-heading,
+      .form-file .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-file input[type="text"],
+      .form-file input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+
+      /* Custom container */
+      .container {
+        margin: 0 auto;
+        max-width: 1000px;
+      }
+      .container > hr {
+        margin: 60px 0;
+      }
+
+
+
+      /* Customize the navbar links to be fill the entire space of the .navbar */
+      .navbar .navbar-inner {
+        padding: 0;
+      }
+      .navbar .nav {
+        margin: 0;
+        display: table;
+        width: 100%;
+      }
+      .navbar .nav li {
+        display: table-cell;
+        width: 1%;
+        float: none;
+      }
+      .navbar .nav li a {
+        font-weight: bold;
+        text-align: center;
+        border-left: 1px solid rgba(255,255,255,.75);
+        border-right: 1px solid rgba(0,0,0,.1);
+      }
+          .navbar .nav li:first-child a {
+        border-left: 0;
+        border-radius: 3px 0 0 3px;
+      }
+      .navbar .nav li:last-child a {
+        border-right: 0;
+        border-radius: 0 3px 3px 0;
+      }
+    </style>
+
+
+
+
+
+
+
+
+
+    <title>{{ page_title }}</title>
+</head>
+
+
+<body>
+<div class="container">
+        <h3 class="muted">Webrecorder</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li><a href="{% url 'Stations.views.AudioRecorder' %}">Audiorecorder</a></li>
+                <li><a href="{% url 'Stations.views.VideoRecorder' %}">Videorecorder</a></li>
+                <li><a href="{%  url 'Stations.views.addStations' %}">Neue&nbsp;Stationen</a></li>
+                <li><a href="{% url 'Stations.views.showAudioFileListforTagging' %}">Mp3&#8209;Tagger</a></li>
+                <li><a href="{% url 'Stations.views.showAudioFiles' %}">Audioaufnahmen</a></li>
+                <li><a href="{% url 'Stations.views.showVideoFiles' %}">Videoaufnahmen</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+
+
+
+<div class="container">
+
+    {% bootstrap_messages %}
+    {% block mess %}{% endblock %}
+    {% block content %}Empty page{% endblock %}
+    {% if error %}<p>{{ error }}</p>{%  endif %}
+    <p><hr></p>
+
+    <footer class="row">
+
+        <div class="span6">
+            <p>
+                Webrecorder &copy; Torben Jastrow
+            </p>
+        </div>
+    </footer>
+
+</div> <!-- container -->
+
+ </div>
+
+</body>
+</html>

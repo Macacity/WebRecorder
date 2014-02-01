@@ -1,0 +1,13 @@
+{%  extends 'index.html' %}
+
+{% load bootstrap_toolkit %}
+{%  block content %}
+
+<form action="?" class="form-file" method="post">
+{% csrf_token %}
+ {% bootstrap_form form layout="vertical" %}
+   
+ <button class="btn btn-large btn-primary" type="submit">{% block btnv %}Submit{% endblock %}</button>
+
+</form>
+{%  endblock %}
