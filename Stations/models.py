@@ -1,9 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
-
-
 
 class StreamType(models.Model):
     stream_type = models.CharField(max_length=5)
@@ -18,5 +14,5 @@ class Station(models.Model):
     url_text = models.CharField(max_length=1000)
     encoding = models.CharField(max_length=5)
 
-    def __unicode__(self):  # Python 3: def __str__(self):
+    def __unicode__(self):
         return self.name
